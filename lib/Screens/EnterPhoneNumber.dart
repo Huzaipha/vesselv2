@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vesselv2/SVG/svg.dart';
+import 'package:vesselv2/Screens/TypeScreen.dart';
 import 'package:vesselv2/Screens/Worker/WorkerHome.dart';
 import 'package:vesselv2/Widgets/textfield.dart';
 import 'package:vesselv2/routes/route.dart';
@@ -145,7 +146,7 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                     onPressed: () {
                       PageRouting.goToNextPage(
                           context: context,
-                          navigateTo: WorkerHomePage(
+                          navigateTo: ChooseType(
                             title: '',
                           ));
                     },
@@ -166,9 +167,6 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
                   ),
                   TextButton(
                     onPressed: () {},

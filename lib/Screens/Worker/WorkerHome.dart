@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:vesselv2/Screens/prac.dart';
+import 'package:vesselv2/routes/route.dart';
 
 class WorkerHomePage extends StatefulWidget {
   const WorkerHomePage({super.key, required String title});
@@ -189,7 +191,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
 
         //current Task
         Container(
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 30),
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -198,9 +200,12 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                 style:
                     TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold),
               ),
-              Text(
-                "See All",
-                style: TextStyle(fontFamily: "Lato", color: Colors.orange),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "See All",
+                  style: TextStyle(fontFamily: "Lato", color: Colors.orange),
+                ),
               ),
             ],
           ),
@@ -225,7 +230,9 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                     height: 200,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -354,7 +361,13 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                               ),
                             ),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  PageRouting.goToNextPage(
+                                      context: context,
+                                      navigateTo: practice(
+                                        title: '',
+                                      ));
+                                },
                                 icon: Icon(Icons.arrow_forward_ios))
                           ],
                         ),
@@ -366,7 +379,9 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                     height: 200,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -507,7 +522,9 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                     height: 200,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -654,7 +671,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
 
         // Service Request
         Container(
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 10, top: 20),
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -663,9 +680,12 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                 style:
                     TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold),
               ),
-              Text(
-                "See All",
-                style: TextStyle(fontFamily: "Lato", color: Colors.orange),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "See All",
+                  style: TextStyle(fontFamily: "Lato", color: Colors.orange),
+                ),
               ),
             ],
           ),
@@ -689,7 +709,9 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -824,12 +846,14 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                       ],
                     ),
                   ),
- Container(
+                  Container(
                     margin: EdgeInsets.only(left: 47, right: 47),
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(
@@ -964,12 +988,14 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                       ],
                     ),
                   ),
- Container(
+                  Container(
                     margin: EdgeInsets.only(left: 47, right: 47),
                     height: 300,
                     width: 300,
                     decoration: BoxDecoration(
-                      border: Border.all(),
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Column(

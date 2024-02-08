@@ -2,6 +2,7 @@
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:vesselv2/Screens/EnterPhoneNumber.dart';
 import 'package:vesselv2/Screens/TypeScreen.dart';
 
 class splashTwo extends StatefulWidget {
@@ -48,7 +49,7 @@ class _SplashStateTwo extends State<splashTwo> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ChooseType(title: '',)));
+                          builder: (context) => EnterPhoneNumber()));
                   // _showNextButton = true;
                 }
               } else {
