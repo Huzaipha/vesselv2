@@ -212,7 +212,9 @@ class _ServiceRequestState extends State<ServiceRequest> {
               ],
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             margin: EdgeInsets.only(top: 20, right: 20),
             decoration: myBoxDecoration,
@@ -385,7 +387,9 @@ class _ServiceRequestState extends State<ServiceRequest> {
               ],
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             margin: EdgeInsets.only(top: 20, right: 20),
             decoration: myBoxDecoration,
@@ -566,7 +570,19 @@ class _ServiceRequestState extends State<ServiceRequest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF0A1D56),
+        title: Center(
+          child: Text(
+            "Service Requests",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Lato",
+                fontWeight: FontWeight.bold,
+                fontSize: 14),
+          ),
+        ),
+      ),
       body: Center(
         child: ListView(
           physics: BouncingScrollPhysics(),

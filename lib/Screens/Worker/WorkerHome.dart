@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:vesselv2/Screens/Worker/PostJob.dart';
 import 'package:vesselv2/Screens/Worker/ServiceRequest.dart';
+import 'package:vesselv2/Screens/Worker/WorkerProfile.dart';
 import 'package:vesselv2/Screens/prac.dart';
 import 'package:vesselv2/routes/route.dart';
 
@@ -100,7 +102,6 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                       ],
                     ),
                   ),
-                  
                   SizedBox(
                     width: 20,
                   ),
@@ -281,7 +282,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                                 onPressed: () {
                                   PageRouting.goToNextPage(
                                       context: context,
-                                      navigateTo: practice(
+                                      navigateTo: ServiceRequest(
                                         title: '',
                                       ));
                                 },
@@ -334,7 +335,6 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
             itemBuilder: (context, index) {
               return Row(
                 children: [
-                  
                   Container(
                     margin: EdgeInsets.only(
                       left: 15,
@@ -557,9 +557,15 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
           ),
           BottomNavigationBarItem(
             label: "Job",
-            icon: Icon(
-              Icons.work,
-              color: Colors.black,
+            icon: IconButton(
+              onPressed: () {
+                PageRouting.goToNextPage(
+                    context: context, navigateTo: WorkerJob());
+              },
+              icon: Icon(
+                Icons.work,
+                color: Colors.black,
+              ),
             ),
           ),
           BottomNavigationBarItem(
@@ -571,9 +577,15 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
           ),
           BottomNavigationBarItem(
             label: "Profile",
-            icon: Icon(
-              Icons.person,
-              color: Colors.black,
+            icon: IconButton(
+              onPressed: () {
+                PageRouting.goToNextPage(
+                    context: context, navigateTo: WorkerProfile());
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.black,
+              ),
             ),
           ),
         ],

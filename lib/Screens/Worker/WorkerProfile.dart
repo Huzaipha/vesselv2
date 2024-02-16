@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 
 class WorkerProfile extends StatefulWidget {
-  const WorkerProfile({super.key, required String title});
-
   @override
   State<WorkerProfile> createState() => _WorkerProfileState();
 }
@@ -174,7 +172,7 @@ class _WorkerProfileState extends State<WorkerProfile> {
           //Discount
 
           Container(
-            margin: EdgeInsets.only(left:20, right: 20, top: 20),
+            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.transparent),
               borderRadius: BorderRadius.all(Radius.circular(10)),

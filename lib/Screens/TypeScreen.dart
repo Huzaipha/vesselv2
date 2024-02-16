@@ -16,7 +16,11 @@ class _ChooseTypeState extends State<ChooseType> {
   int selectedTabIndex = 0; // 0 for Worker, 1 for HomeOwner
 
   Widget buildRadioButton(
-      int index, String title, String description, String imagePath) {
+    int index,
+    String title,
+    String description,
+    String imagePath,
+  ) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -178,7 +182,9 @@ class _ChooseTypeState extends State<ChooseType> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => WorkerHomePage(title: '',)),
+                    builder: (context) => WorkerHomePage(
+                          title: '',
+                        )),
               );
             } else if (selectedTabIndex == 1) {
               Navigator.push(
