@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:vesselv2/Screens/EnterPhoneNumber.dart';
+import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
 import 'package:vesselv2/Screens/Worker/WorkerHome.dart';
 import 'package:vesselv2/Screens/prac.dart';
 
@@ -189,7 +190,7 @@ class _ChooseTypeState extends State<ChooseType> {
             } else if (selectedTabIndex == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => practice(title: "")),
+                MaterialPageRoute(builder: (context) => WorkerJob()),
               );
             }
           },

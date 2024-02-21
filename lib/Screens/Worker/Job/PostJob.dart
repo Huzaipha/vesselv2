@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_declarations, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:vesselv2/Screens/Worker/Job/JobDescription.dart';
+import 'package:vesselv2/routes/route.dart';
 
 class WorkerJob extends StatefulWidget {
   const WorkerJob({Key? key}) : super(key: key);
@@ -23,21 +25,59 @@ class _WorkerJobState extends State<WorkerJob> {
   Widget upperPart() {
     return Column(
       children: [
+        SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 50),
+              padding: EdgeInsets.only(left: 30),
               child: Text(
                 "1/2",
-                style: myTextStyleslow,
+                style: hintTextStyles,
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
           ],
-        )
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            LinearProgressIndicator(
+              value: 0.5,
+              minHeight: 20,
+              color: Color(0xFF0A1D56),
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Center(
+                    child: Text(
+                      'Job Details',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Lato",
+                          fontSize: 14),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Center(
+                    child: Text('Job Description', style: hintTextStyles),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
@@ -163,7 +203,9 @@ class _WorkerJobState extends State<WorkerJob> {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 10,),
+                  margin: EdgeInsets.only(
+                    top: 10,
+                  ),
                   child: TextField(
                     style: TextStyle(fontFamily: "Lato"),
                     decoration: InputDecoration(
@@ -192,7 +234,9 @@ class _WorkerJobState extends State<WorkerJob> {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 10,),
+                  margin: EdgeInsets.only(
+                    top: 10,
+                  ),
                   child: TextField(
                     style: TextStyle(fontFamily: "Lato"),
                     decoration: InputDecoration(
@@ -356,7 +400,10 @@ class _WorkerJobState extends State<WorkerJob> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.35,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    PageRouting.goToNextPage(
+                        context: context, navigateTo: jobDescription());
+                  },
                   color: Color(0xFF0A1D56),
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(

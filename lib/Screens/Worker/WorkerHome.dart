@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:vesselv2/Screens/Worker/PostJob.dart';
+import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
 import 'package:vesselv2/Screens/Worker/ServiceRequest.dart';
 import 'package:vesselv2/Screens/Worker/WorkerProfile.dart';
 import 'package:vesselv2/Screens/prac.dart';
