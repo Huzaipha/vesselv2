@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, depend_on_referenced_packages
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, depend_on_referenced_packages, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -6,8 +6,6 @@ import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 
 class ServiceRequest extends StatefulWidget {
-  const ServiceRequest({super.key, required String title});
-
   @override
   State<ServiceRequest> createState() => _ServiceRequestState();
 }
@@ -118,9 +116,7 @@ class _ServiceRequestState extends State<ServiceRequest>
                             color: Color(0xFF0A1D56),
                           ),
                           TextButton(
-                            onPressed: () {
-                              _showModal(context);
-                            },
+                            onPressed: () {},
                             child: InkWell(
                               child: Text(
                                 locationadress,
@@ -204,6 +200,10 @@ class _ServiceRequestState extends State<ServiceRequest>
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
+                                "_______",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text(
                                 "Are You Sure",
                                 style: TextStyle(
                                     color: Colors.black,
@@ -229,23 +229,29 @@ class _ServiceRequestState extends State<ServiceRequest>
                                       MediaQuery.of(context).size.height * 0.2,
                                 ),
                               ),
-                              Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                width: MediaQuery.of(context).size.width * 0.90,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF0A1D56),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(4)),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Pay Now",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: "Lato",
+                              MaterialButton(
+                                onPressed: () {
+                                  _showModal(context);
+                                },
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.035,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.90,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF0A1D56),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Continue",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Lato",
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                               ),
@@ -273,15 +279,18 @@ class _ServiceRequestState extends State<ServiceRequest>
                     ),
                   ),
                 ),
-                Center(
-                  child: TextButton(
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.88,
+                  child: MaterialButton(
                     onPressed: () {},
+                    color: Colors.white,
+                    textColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Text(
-                      "Delete",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: "Lato",
-                      ),
+                      "Back",
+                      style: myTextStyles,
                     ),
                   ),
                 ),
@@ -290,353 +299,6 @@ class _ServiceRequestState extends State<ServiceRequest>
           ),
           SizedBox(
             height: 10,
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20, right: 20),
-            decoration: myBoxDecoration,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.deepPurple,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              left: 10,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Akash Vikrant",
-                                  style: myTextStyles,
-                                ),
-                                Text(
-                                  "Kitchen and Cleaning",
-                                  style: myTextStyleslow,
-                                ),
-                                Text(
-                                  "Rs/- 500",
-                                  style: myTextStyles,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  endIndent: 5,
-                  indent: 5,
-                  color: Colors.grey,
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 20, top: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.room,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              _showModal(context);
-                            },
-                            child: InkWell(
-                              child: Text(
-                                locationadress,
-                                style: TextStyle(
-                                  fontFamily: "Lato",
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              onTap: () {
-                                _showModal(context);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "7 May, 23",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "02:30 pm",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.home,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "1 Room, floor cleaning",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: MaterialButton(
-                    onPressed: () {},
-                    child: Container(
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF0A1D56),
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Lato",
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Delete",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: "Lato",
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20, right: 20),
-            decoration: myBoxDecoration,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.deepPurple,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              left: 10,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Akash Vikrant",
-                                  style: myTextStyles,
-                                ),
-                                Text(
-                                  "Kitchen and Cleaning",
-                                  style: myTextStyleslow,
-                                ),
-                                Text(
-                                  "Rs/- 500",
-                                  style: myTextStyles,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  endIndent: 5,
-                  indent: 5,
-                  color: Colors.grey,
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 20, top: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.room,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              _showModal(context);
-                            },
-                            child: InkWell(
-                              child: Text(
-                                locationadress,
-                                style: TextStyle(
-                                  fontFamily: "Lato",
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              onTap: () {
-                                _showModal(context);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "7 May, 23",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "02:30 pm",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.home,
-                            color: Color(0xFF0A1D56),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "1 Room, floor cleaning",
-                            style: TextStyle(
-                              fontFamily: "Lato",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: MaterialButton(
-                    onPressed: () {},
-                    child: Container(
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF0A1D56),
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Lato",
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Delete",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: "Lato",
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
           ),
         ],
       ),

@@ -130,10 +130,11 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                 Container(
                   margin: EdgeInsets.only(left: 40),
                   child: IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        SvgImages.twitter,
-                      )),
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      SvgImages.twitter,
+                    ),
+                  ),
                 ),
               ],
             ),

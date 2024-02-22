@@ -361,8 +361,6 @@
 //     return const Placeholder();
 //   }
 
-
-
 // ignore_for_file: unused_local_variable, prefer_final_fields, unused_field
 
 // import 'package:animated_text_kit/animated_text_kit.dart';
@@ -530,7 +528,6 @@
 //   }
 // }
 
-
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 // import 'package:flutter/material.dart';
@@ -662,8 +659,6 @@ import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:flutter_animated_icons/useanimations.dart';
 import 'package:lottie/lottie.dart';
 
-
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -674,6 +669,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  String? _selectOne;
+
   late AnimationController _settingController;
   late AnimationController _favoriteController;
   late AnimationController _menuController;
@@ -723,6 +720,50 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               /// Tap with animation example
               Column(
                 children: [
+                  InkWell(
+                    onDoubleTap: () {
+                      setState(() {
+                        _selectOne = null;
+                      });
+                    },
+                    onTap: () {
+                      setState(() {
+                        _selectOne = "Yes";
+                      });
+                    },
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        color: _selectOne == "Yes" ? Colors.blue : null,
+                      ),
+                      child: Center(child: Text("Y")),
+                    ),
+                  ),
+                  InkWell(
+                    onDoubleTap: () {
+                      setState(() {
+                        _selectOne = null;
+                      });
+                    },
+                    onTap: () {
+                      setState(() {
+                        _selectOne = "no";
+                      });
+                    },
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        color: _selectOne == "no" ? Colors.yellow : null,
+                      ),
+                      child: Center(
+                        child: Text("N"),
+                      ),
+                    ),
+                  ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text('Tap'),
@@ -834,53 +875,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               // To change color, goto https://lottiefiles.com/editor
               // original color
               // changed color
-              Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('Edited animation color\nblack → blue',
-                        textAlign: TextAlign.center),
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        splashRadius: 50,
-                        iconSize: 100,
-                        onPressed: () {
-                          if (_menuController.status ==
-                              AnimationStatus.dismissed) {
-                            _menuController.reset();
-                            _menuController.animateTo(0.6);
-                          } else {
-                            _menuController.reverse();
-                          }
-                        },
-                        icon: Lottie.asset(Useanimations.menuV3,
-                            controller: _menuController,
-                            height: 60,
-                            fit: BoxFit.fitHeight),
-                      ),
-                      IconButton(
-                        splashRadius: 50,
-                        iconSize: 100,
-                        onPressed: () {
-                          if (_menuController.status ==
-                              AnimationStatus.dismissed) {
-                            _menuController.reset();
-                            _menuController.animateTo(0.6);
-                          } else {
-                            _menuController.reverse();
-                          }
-                        },
-                        icon: Lottie.asset(Useanimations.menuV3Blue,
-                            controller: _menuController,
-                            height: 60,
-                            fit: BoxFit.fitHeight),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ],
           ),
         ),

@@ -282,9 +282,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                                 onPressed: () {
                                   PageRouting.goToNextPage(
                                       context: context,
-                                      navigateTo: ServiceRequest(
-                                        title: '',
-                                      ));
+                                      navigateTo: ServiceRequest());
                                 },
                                 icon: Icon(
                                   Icons.arrow_forward_ios,
