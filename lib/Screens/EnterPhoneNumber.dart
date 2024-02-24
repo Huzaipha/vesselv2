@@ -146,10 +146,7 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                   MaterialButton(
                     onPressed: () {
                       PageRouting.goToNextPage(
-                          context: context,
-                          navigateTo: ChooseType(
-                            title: '',
-                          ));
+                          context: context, navigateTo: ChooseType());
                     },
                     child: Container(
                       height: 35,

@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, unused_import, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
-import 'package:vesselv2/Screens/Worker/ServiceRequest.dart';
-import 'package:vesselv2/Screens/Worker/WorkerProfile.dart';
+import 'package:vesselv2/Screens/HomeOwner/Services/SeeAllServices.dart';
+import 'package:vesselv2/Screens/HomeOwner/OwnerProfile.dart';
 import 'package:vesselv2/Screens/prac.dart';
 import 'package:vesselv2/routes/route.dart';
 
@@ -60,16 +59,50 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
     //For Home
     LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        // -------------------------------------shorcuts-------------------------------------
         String? _selectCategory;
-        final headingTextStyle =
-            TextStyle(fontFamily: "Lato", fontWeight: FontWeight.bold);
+        final categoryDecoratin = BoxDecoration(
+          border: Border.all(),
+          borderRadius: BorderRadius.circular(10),
+        );
+        // ----------------------------------------------------------------------------
+        final gradientDecoration = BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+            colors: [
+              Colors.blue,
+              Colors.deepPurple,
+              Colors.white,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        );
+        // ----------------------------------------------------------------------------
+        final BookNowDecoration = BoxDecoration(
+          border: Border.all(),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: Colors.black,
+        );
+        // ----------------------------------------------------------------------------
+        final headingTextStyle = TextStyle(
+            fontFamily: "Lato", fontWeight: FontWeight.bold, fontSize: 18);
+        // ----------------------------------------------------------------------------
         final normTextStyle = TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: "Lato",
             fontSize: 15);
-        final smallTextStyle =
-            TextStyle(color: Colors.black, fontFamily: "Lato", fontSize: 8);
+        // ----------------------------------------------------------------------------
+        final smallTextStyle = TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Lato",
+            fontSize: 12);
+        // -------------------------------------shorcuts-------------------------------------
         return Column(
           children: [
             Container(
@@ -124,7 +157,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               height: 10,
             ),
 
-            //current Task
+            //Categories
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
               child: Row(
@@ -146,33 +179,69 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               ),
             ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.09,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(10),
+            Container(
+              margin: EdgeInsets.only(
+                left: 10,
+                right: 10,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.09,
+                    decoration: categoryDecoratin,
+                    child: Center(
+                        child: Text(
+                      "Carpenter",
+                      style: normTextStyle,
+                    )),
                   ),
-                  child: Center(
-                      child: Text(
-                    "Carpenter",
-                    style: normTextStyle,
-                  )),
-                ),
-              ],
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.09,
+                    decoration: categoryDecoratin,
+                    child: Center(
+                        child: Text(
+                      "Plumber",
+                      style: normTextStyle,
+                    )),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.09,
+                    decoration: categoryDecoratin,
+                    child: Center(
+                        child: Text(
+                      "Painter",
+                      style: normTextStyle,
+                    )),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.09,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                        child: Text(
+                      "Electritian",
+                      style: normTextStyle,
+                    )),
+                  ),
+                ],
+              ),
             ),
 
-            // Service Request
+            // Service Near You
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Service Request",
+                    "Top Services Near You",
                     style: headingTextStyle,
                   ),
                   TextButton(
@@ -187,7 +256,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
               ),
             ),
             SizedBox(
-              height: 180,
+              height: MediaQuery.of(context).size.height * 0.3,
               child: ListView.separated(
                 separatorBuilder: (BuildContext context, int index) => SizedBox(
                   width: 20,
@@ -197,146 +266,82 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
                 itemBuilder: (context, index) {
                   return Row(
                     children: [
+                      // Starts from Here
                       Container(
-                        margin: EdgeInsets.only(
-                          left: 15,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
+                        margin: EdgeInsets.only(left: 10),
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        decoration: gradientDecoration,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                color: Colors.grey,
-                                border: Border.all(color: Colors.grey),
-                              ),
-                              child: Row(
+                              margin:
+                                  EdgeInsets.only(top: 30, left: 10, right: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    margin:
-                                        EdgeInsets.only(left: 10, right: 10),
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                    ),
+// ------------------------------------Worker Name----------------------------------------------------------------------------------
+                                  Text(
+                                    "Rana Haroon",
+                                    style: headingTextStyle,
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+// ------------------------------------Worker Job Type----------------------------------------------------------------------------------
+                                  Text(
+                                    "Wood Services",
+                                    style: smallTextStyle,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "Akash Roy",
-                                        style: normTextStyle,
-                                      ),
-                                      Text(
-                                        "Kitchen and room cleaning",
+                                        "Starting From",
                                         style: smallTextStyle,
                                       ),
-                                      Text(
-                                        "Rs/- 500",
-                                        style: normTextStyle,
+// ------------------------------------Worker Reviews----------------------------------------------------------------------------------
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.star,
+                                          color: Colors.orange,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 90),
-                                    child: IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Colors.black,
-                                      ),
-                                    ),
+// ------------------------------------Worker Pay Rate----------------------------------------------------------------------------------
+                                  Text(
+                                    "Rs/- 500.",
+                                    style: smallTextStyle,
                                   ),
                                 ],
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(right: 120),
-                              margin: EdgeInsets.only(top: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.room,
-                                        color: Color(0xFF0A1D56),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "1.0 km away",
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              decoration: BookNowDecoration,
+                              child: Center(
+                                  child: TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Book Now",
                                         style: TextStyle(
+                                          decoration: TextDecoration.underline,
+                                          color: Colors.white,
                                           fontFamily: "Lato",
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 10,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.calendar_month,
-                                        color: Color(0xFF0A1D56),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "7 May, 23",
-                                        style: TextStyle(
-                                          fontFamily: "Lato",
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 50,
-                                      ),
-                                      Text(
-                                        "02:30 pm",
-                                        style: TextStyle(
-                                          fontFamily: "Lato",
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.home,
-                                        color: Color(0xFF0A1D56),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "1 Room, floor cleaning",
-                                        style: TextStyle(
-                                          fontFamily: "Lato",
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                      ))),
                             ),
                           ],
                         ),
                       ),
+                      // Ends here
                       SizedBox(
                         width: 20,
                       ),
+                      // Add more here
                     ],
                   );
                 },
@@ -415,7 +420,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
             icon: IconButton(
               onPressed: () {
                 PageRouting.goToNextPage(
-                    context: context, navigateTo: WorkerJob());
+                    context: context, navigateTo: SeeAllServices());
               },
               icon: Icon(
                 Icons.work,
@@ -435,7 +440,7 @@ class _OwnerHomePageState extends State<OwnerHomePage> {
             icon: IconButton(
               onPressed: () {
                 PageRouting.goToNextPage(
-                    context: context, navigateTo: WorkerProfile());
+                    context: context, navigateTo: OwnerProfile());
               },
               icon: Icon(
                 Icons.person,

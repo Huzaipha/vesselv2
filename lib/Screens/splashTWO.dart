@@ -6,8 +6,6 @@ import 'package:vesselv2/Screens/EnterPhoneNumber.dart';
 import 'package:vesselv2/Screens/TypeScreen.dart';
 
 class splashTwo extends StatefulWidget {
-  const splashTwo({Key? key, required String title}) : super(key: key);
-
   @override
   State<splashTwo> createState() => _SplashStateTwo();
 }

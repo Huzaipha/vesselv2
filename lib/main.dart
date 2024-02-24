@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:vesselv2/Screens/EnterPhoneNumber.dart';
+import 'package:vesselv2/Screens/HomeOwner/Services/SeeAllServices.dart';
 import 'package:vesselv2/Screens/HomeOwner/OwnerHomeScreen.dart';
 import 'package:vesselv2/Screens/TypeScreen.dart';
 import 'package:vesselv2/Screens/Worker/Job/JobDescription.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: ServiceRequest(),
+      home: SplashScreen(),
     );
   }
 }

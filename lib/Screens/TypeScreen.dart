@@ -1,14 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:vesselv2/Screens/EnterPhoneNumber.dart';
+import 'package:vesselv2/Screens/HomeOwner/OwnerHomeScreen.dart';
 import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
 import 'package:vesselv2/Screens/Worker/WorkerHome.dart';
-import 'package:vesselv2/Screens/prac.dart';
 
 class ChooseType extends StatefulWidget {
-  const ChooseType({super.key, required String title});
-
   @override
   State<ChooseType> createState() => _ChooseTypeState();
 }
@@ -190,7 +187,7 @@ class _ChooseTypeState extends State<ChooseType> {
             } else if (selectedTabIndex == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => WorkerJob()),
+                MaterialPageRoute(builder: (context) => OwnerHomePage()),
               );
             }
           },

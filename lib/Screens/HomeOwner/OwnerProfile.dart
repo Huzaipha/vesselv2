@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-class WorkerProfile extends StatefulWidget {
+class OwnerProfile extends StatefulWidget {
   @override
-  State<WorkerProfile> createState() => _WorkerProfileState();
+  State<OwnerProfile> createState() => _OwnerProfileState();
 }
 
-class _WorkerProfileState extends State<WorkerProfile> {
+class _OwnerProfileState extends State<OwnerProfile> {
   final decorationBox = BoxDecoration(
       color: Colors.white,
       border: Border.all(color: Colors.white),
@@ -141,10 +141,7 @@ class _WorkerProfileState extends State<WorkerProfile> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      "Settings",
-                      style: decorationText
-                    ),
+                    Text("Settings", style: decorationText),
                   ],
                 ),
               ),
