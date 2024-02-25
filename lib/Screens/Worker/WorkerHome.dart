@@ -2,19 +2,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
+import 'package:vesselv2/Screens/Worker/LocationAccess.dart';
 import 'package:vesselv2/Screens/Worker/ServiceRequest.dart';
 import 'package:vesselv2/Screens/Worker/WorkerProfile.dart';
+import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'package:vesselv2/Screens/prac.dart';
 import 'package:vesselv2/routes/route.dart';
 
 class WorkerHomePage extends StatefulWidget {
-  const WorkerHomePage({super.key, required String title});
-
   @override
   State<WorkerHomePage> createState() => _WorkerHomePageState();
 }
 
 class _WorkerHomePageState extends State<WorkerHomePage> {
+  String? locationadress = "1.0 km away";
   AppBar buildAppBar() {
     return AppBar(
       title: Column(
@@ -282,7 +283,7 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                                 onPressed: () {
                                   PageRouting.goToNextPage(
                                       context: context,
-                                      navigateTo: ServiceRequest());
+                                      navigateTo: LocationAccess());
                                 },
                                 icon: Icon(
                                   Icons.arrow_forward_ios,
@@ -389,7 +390,11 @@ class _WorkerHomePageState extends State<WorkerHomePage> {
                               Container(
                                 margin: EdgeInsets.only(left: 90),
                                 child: IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    PageRouting.goToNextPage(
+                                        context: context,
+                                        navigateTo: ServiceRequest());
+                                  },
                                   icon: Icon(
                                     Icons.arrow_forward_ios,
                                     color: Colors.black,

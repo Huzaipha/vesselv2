@@ -82,7 +82,7 @@ class _ChooseTypeState extends State<ChooseType> {
           height: 150,
           child: Image.asset(
             "images/logo.png",
-            height: 200,
+            height: MediaQuery.of(context).size.height*0.3,
           ),
         ),
         Column(
@@ -180,9 +180,7 @@ class _ChooseTypeState extends State<ChooseType> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => WorkerHomePage(
-                          title: '',
-                        )),
+                    builder: (context) => WorkerHomePage()),
               );
             } else if (selectedTabIndex == 1) {
               Navigator.push(

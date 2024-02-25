@@ -7,6 +7,7 @@ import 'package:vesselv2/Screens/HomeOwner/OwnerHomeScreen.dart';
 import 'package:vesselv2/Screens/TypeScreen.dart';
 import 'package:vesselv2/Screens/Worker/Job/JobDescription.dart';
 import 'package:vesselv2/Screens/Worker/Job/PostJob.dart';
+import 'package:vesselv2/Screens/Worker/LocationAccess.dart';
 import 'package:vesselv2/Screens/Worker/WorkerHome.dart';
 import 'package:vesselv2/Screens/prac.dart';
 import 'package:vesselv2/Screens/splashScreen.dart';
